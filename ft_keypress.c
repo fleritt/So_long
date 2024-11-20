@@ -21,9 +21,20 @@ int on_destroy(t_data *data)
 	return (0);
 }
 
-int on_keypress(int keysym, t_data *data)
+int key_press(int key, t_data *data)
 {
-	(void)data;
-	printf("Pressed key: %d\\n", keysym);
+	if (key == XK_Escape)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		exit(0);
+		return (0);
+	}
+}
+
+int on_keypress(t_data *data)
+{
+	printf("key\n");
 	return (0);
 }

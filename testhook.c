@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   testhook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/06 12:18:31 by marvin            #+#    #+#             */
-/*   Updated: 2024/11/06 12:18:31 by marvin           ###   ########.fr       */
+/*   Created: 2024/11/12 12:05:24 by marvin            #+#    #+#             */
+/*   Updated: 2024/11/12 12:05:24 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int main(void)
+int	key_hook(int keycode, t_data *data)
+{
+	printf("Hello from key_hook!\n");
+	return (0);
+}
+
+int	main(void)
 {
 	t_data	data;
 
 	data.mlx_ptr = mlx_init();
-	if (!data.mlx_ptr)
-		return (1);
-	data.win_ptr = mlx_new_window(data.mlx_ptr, 600, 400, "hi :)");
-	if (!data.win_ptr)
-		return (free(data.mlx_ptr), 1);
-	mlx_hook(data.win_ptr, KeyRelease, KeyReleaseMask, &on_keypress, &data);
-	mlx_hook(data.win_ptr, DestroyNotify, StructureNotifyMask, &on_destroy, &data);
+	data.win_ptr = mlx_new_window(data.mlx_ptr, 640, 480, "Hello world!");
+	mlx_key_hook(data.win_ptr, key_hook, &data);
 	mlx_loop(data.mlx_ptr);
-	return (0);
 }
