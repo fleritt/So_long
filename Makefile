@@ -21,7 +21,7 @@ MINILIBX_FLAGS	= -lmlx -lXext -lX11
 RM = rm -f
 
 SRC = ./src/so_long.c ./src/ft_keypress.c ./src/ft_load_map.c ./src/ft_error.c \
-./src/ft_draw_map.c
+./src/ft_draw_map.c ./src/ft_victory.c
 	
 all: ${MLX} ${LIBFT} ${NAME}
 

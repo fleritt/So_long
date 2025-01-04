@@ -12,15 +12,16 @@
 
 #include "so_long.h"
 
-int ft_valid_char(char *line, int f)
+int	ft_valid_char(char *line, int f)
 {
 	int	i;
 
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != '1' && line[i] != '0' && line[i] != 'E' && line[i] != '\n'
-			&& line[i] != 'C' && line[i] != 'P' && line[i] != '\r')
+		if (line[i] != '1' && line[i] != '0' && line[i] != 'E'
+			&& line[i] != '\n' && line[i] != 'C' && line[i] != 'P'
+			&& line[i] != '\r')
 			return (0);
 		i++;
 	}
@@ -40,15 +41,15 @@ int ft_valid_char(char *line, int f)
 	return (1);
 }
 
-void ft_valid_map(t_data *data)
+void	ft_valid_map(t_data *data)
 {
-	int fd;
-	char *line;
-	int f;
-	int valid;
+	int		fd;
+	char	*line;
+	int		f;
+	int		valid;
 
 	fd = open(data->ber, O_RDONLY);
-	if(fd == -1)
+	if (fd == -1)
 		ft_error("¡ERROR! El archivo no existe", data);
 	f = 1;
 	line = get_next_line(fd);
@@ -58,10 +59,7 @@ void ft_valid_map(t_data *data)
 	{
 		valid = ft_valid_char(line, f);
 		if (valid == 0)
-		{
-			free(line);
-			ft_error("¡ERROR! El Mapa no es válido", data);
-		}
+			ft_invalid_map(line);
 		f = 0;
 		free(line);
 		line = get_next_line(fd);
@@ -69,35 +67,35 @@ void ft_valid_map(t_data *data)
 	close(fd);
 }
 
-void ft_count_map_size(t_data *data)
+void	ft_count_map_size(t_data *data)
 {
-    int fd;
-    char *line;
+	int		fd;
+	char	*line;
 
 	data->width = 0;
-    data->height = 0;
-    fd = open(data->ber, O_RDONLY);
-    if (fd == -1)
+	data->height = 0;
+	fd = open(data->ber, O_RDONLY);
+	if (fd == -1)
 		ft_error("¡ERROR! El archivo no existe", data);
-    line = get_next_line(fd);
-    if (!line)
+	line = get_next_line(fd);
+	if (!line)
 		ft_error("¡ERROR! El archivo no es válido", data);
-    data->width = ft_strlen(line) - 1;
-    while (line)
-    {
-        data->height++;
+	data->width = ft_strlen(line) - 1;
+	while (line)
+	{
+		data->height++;
 		free(line);
-        line = get_next_line(fd);
-    }
+		line = get_next_line(fd);
+	}
 	free(line);
-    close(fd);
+	close(fd);
 }
 
-void ft_load_map(t_data *data)
+void	ft_load_map(t_data *data)
 {
-	int fd;
-	char *line;
-	int i;
+	int		fd;
+	char	*line;
+	int		i;
 
 	i = 0;
 	ft_valid_map(data);
@@ -109,7 +107,7 @@ void ft_load_map(t_data *data)
 	while (i < data->height)
 	{
 		line = get_next_line(fd);
-		if(!line)
+		if (!line)
 			ft_error("¡ERROR!", data);
 		data->map[i] = ft_strdup(line);
 		if (!data->map[i])

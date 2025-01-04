@@ -30,37 +30,40 @@
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <math.h>
-//<>
 
 typedef struct s_image
 {
-    void *player;
-    void *wall;
-    void *empty;
-    void *collectible;
-    void *exit;
+	void	*player;
+	void	*wall;
+	void	*empty;
+	void	*collectible;
+	void	*exit;
 } t_image;
 
-typedef struct s_data 
+typedef struct s_data
 {
-    void *mlx;
-    void *win;
-    int height;
-    int width;
-    int x;
-    int y;
-    int i;
-    int step;
-    int c;
-    char **map;
-    char *ber;
-    t_image *images;
+	void	*mlx;
+	void	*win;
+	int		height;
+	int		width;
+	int		x;
+	int		y;
+	int		i;
+	int		step;
+	int		c;
+	char	**map;
+	char	*ber;
+	t_image	*images;
 } t_data;
 
-int on_destroy(t_data *data);
-int key_press(int key, t_data *data);
-void ft_load_map(t_data *data);
-void ft_error(char *error, t_data *data);
-void ft_draw_map(t_data *data);
+int		on_destroy(t_data *data);
+int		key_press(int key, t_data *data);
+void	ft_load_map(t_data *data);
+void	ft_error(char *error, t_data *data);
+void	ft_draw_map(t_data *data);
+void	ft_invalid_map(char *line);
+void	ft_victory(t_data *data);
+void	destroy_map(t_data *data);
+void	ft_count_coll(t_data *data);
 
 #endif

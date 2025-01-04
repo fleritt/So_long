@@ -12,15 +12,15 @@
 
 #include "so_long.h"
 
-void ft_position(t_data *data, int x, int y)
+void	ft_position(t_data *data, int x, int y)
 {
-    mlx_put_image_to_window(data->mlx, data->win, data->images->player,
+	mlx_put_image_to_window(data->mlx, data->win, data->images->player,
 		x * TILE_SIZE, y * TILE_SIZE);
 	data->x = x;
 	data->y = y;
 }
 
-void ft_exit_coll(t_data *data, int x, int y)
+void	ft_exit_coll(t_data *data, int x, int y)
 {
 	if (data->map[y][x] == 'E')
 	{
@@ -34,31 +34,31 @@ void ft_exit_coll(t_data *data, int x, int y)
 	}
 }
 
-void ft_draw_map(t_data *data)
+void	ft_draw_map(t_data *data)
 {
-    int x;
-	int y;
+	int	x;
+	int	y;
 
-    y = 0;
-    while (y < data->height)
-    {
-        x = 0;
-        while (x < data->width)
-        {
-            if (data->map[y][x] == '1')
-                mlx_put_image_to_window(data->mlx, data->win, data->images->wall,
-				x * TILE_SIZE, y * TILE_SIZE);
-            else if (data->map[y][x] == '0')
-                mlx_put_image_to_window(data->mlx, data->win, data->images->empty,
-				x * TILE_SIZE, y * TILE_SIZE);
-            else if (data->map[y][x] == 'C')
-                ft_exit_coll(data, x, y);
-            else if (data->map[y][x] == 'E')
-                ft_exit_coll(data, x, y);
-            else if (data->map[y][x] == 'P')
+	y = 0;
+	while (y < data->height)
+	{
+		x = 0;
+		while (x < data->width)
+		{
+			if (data->map[y][x] == '1')
+				mlx_put_image_to_window(data->mlx, data->win,
+					data->images->wall, x * TILE_SIZE, y * TILE_SIZE);
+			else if (data->map[y][x] == '0')
+				mlx_put_image_to_window(data->mlx, data->win,
+					data->images->empty, x * TILE_SIZE, y * TILE_SIZE);
+			else if (data->map[y][x] == 'C')
+				ft_exit_coll(data, x, y);
+			else if (data->map[y][x] == 'E')
+				ft_exit_coll(data, x, y);
+			else if (data->map[y][x] == 'P')
 				ft_position(data, x, y);
-            x++;
-        }
-        y++;
-    }
+			x++;
+		}
+		y++;
+	}
 }
