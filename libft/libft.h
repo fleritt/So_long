@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 09:17:51 by rfleritt          #+#    #+#             */
-/*   Updated: 2024/12/03 11:45:21 by marvin           ###   ########.fr       */
+/*   Updated: 2024/12/25 13:56:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,12 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*get_next_line(int fd);
-int	ft_printf(char const *str, ...);
-int	ft_print_char(char c);
-int	ft_print_str(char *str);
-int	ft_print_nbr(int n);
-int	ft_print_unsig(unsigned int n);
-int	ft_print_hex(unsigned int n, unsigned int word);
-int	ft_print_mem(unsigned long long n);
-
+int		ft_printf(char const *str, ...);
+int		ft_print_char(char c);
+int		ft_print_str(char *str);
+int		ft_print_nbr(int n);
+int		ft_print_unsig(unsigned int n);
+int		ft_print_hex(unsigned int n, unsigned int word);
+int		ft_print_mem(unsigned long long n);
 
 #endif
