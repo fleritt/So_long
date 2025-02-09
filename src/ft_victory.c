@@ -33,7 +33,18 @@ void	ft_count_coll(t_data *data)
 
 void	ft_victory(t_data *data)
 {
-	ft_printf("HAS GANADO!!");
+	ft_printf("Movements: %d\n", data->step);
+	ft_printf(GREEN"\n\
+██████████████████████████████████████████████████████████████████\n\
+██                                                              ██\n\
+██  ███  ███  ██████  ██    ██     ██      ██ ██ ██    ██   ██  ██\n\
+██   ██  ██  ██    ██ ██    ██     ██      ██ ██ ███   ██   ██  ██\n\
+██    ████   █      █ ██    ██     ██  ██  ██ ██ ██ ██ ██   ██  ██\n\
+██     ██    ██    ██ ██    ██     ██ ████ ██ ██ ██  ████       ██\n\
+██     ██     ██████    ████        ███  ███  ██ ██   ███   ██  ██\n\
+██                                                              ██\n\
+██████████████████████████████████████████████████████████████████\n\n\
+"RESET);
 	if (data->map)
 		destroy_map(data);
 	mlx_destroy_image(data->mlx, data->images->player);

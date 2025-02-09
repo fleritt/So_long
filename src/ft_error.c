@@ -51,6 +51,12 @@ void	ft_error(char *error, t_data *data)
 void	ft_invalid_map(char *line)
 {
 	free(line);
-	ft_printf("¡ERROR! El Mapa no es válido");
+	ft_printf("¡ERROR! The map is not valid");
 	exit(0);
+}
+void	ft_player_invalid(char *error, t_data *data)
+{
+	ft_printf(error);
+	destroy_map(data);
+	exit(EXIT_FAILURE);
 }

@@ -1,0 +1,33 @@
+/* XPM */
+static char *f09544703e834b84f04769e85621b6c0298DdHPoC1srIqjh[] = {
+/* columns rows colors chars-per-pixel */
+"64 16 11 1 ",
+"  c None",
+". c #14182E",
+"X c #52333F",
+"o c #2B2B45",
+"O c #3A3F5E",
+"+ c #8F4D57",
+"@ c #BD6A62",
+"# c #4C6885",
+"$ c #4FA4B8",
+"% c #FFC2A1",
+"& c #DFE0E8",
+/* pixels */
+"     ......          ......          ......          ......     ",
+"    .OOOOOO.        .OOOOOO.        .OOOOOO.        .OOOOOO.    ",
+"   .OOOOOOOO.      .OOOOOOOO.      .OOOOOOOO.      .OOOOOOOO.   ",
+"   .OOOOOOOO.      .OOOOOOOO.      .OOOOOOOO.      .OOOOOOOO.   ",
+"   .O%OOOO%O.      .OOOOO%OO.      .OOOOOOOO.      .OO%OOOOO.   ",
+"   .O%%%%%%O.      .OOOOO%%%.      .OOOOOOOO.      .%%%OOOOO.   ",
+"  .%Ooo%%ooO%.     .OOOOOoo%.     .%OOOOOOOO%.     .%ooOOOOO.   ",
+"  .%O%.%%.%O%.     .OO%%O%.%.     .%OOOOOOOO%.     .%.%O%%OO.   ",
+"   .@%.@@.%@.       .O%@O%.@.      .@OOOOOO@.      .@.%O@%O.    ",
+"   ..@%%%%@..        .O%%%%.       ..@@OO@@..       .%%%%O.     ",
+"  .%&X+@@+X&%.       ..X@..       .%&X....X&%.       ..@X..     ",
+" .%@.X+&&+X.@%.      .&.X+&.     .%@.X+XX+X.@%.     .&+X.&.     ",
+" .%%.++&&++.%%.      .%@.+&.     .%%.XX++XX.%%.     .&+.@%.     ",
+"  ....#$$#....       .%%.$$.      ....$$$$....      .$$.%%.     ",
+"    .@@..@@.          ..@@.         .@@..@@.         .@@..      ",
+"     ..  ..             ..           ..  ..           ..        "
+};

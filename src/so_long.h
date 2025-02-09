@@ -23,6 +23,9 @@
 # define EMPTY "./tools/sprites/empty.xpm"
 # define COLLECTIBLE "./tools/sprites/collectible.xpm"
 
+# define GREEN	"\033[0;32m"
+# define RESET 	"\033[0m"
+
 # include "../mlx/mlx.h"
 # include "../libft/libft.h"
 # include <stdlib.h>
@@ -51,6 +54,8 @@ typedef struct s_data
 	int		i;
 	int		step;
 	int		c;
+	int		player;
+	int		exit;
 	char	**map;
 	char	*ber;
 	t_image	*images;
@@ -65,5 +70,9 @@ void	ft_invalid_map(char *line);
 void	ft_victory(t_data *data);
 void	destroy_map(t_data *data);
 void	ft_count_coll(t_data *data);
+void	ft_check_map(t_data *data);
+void	ft_count_p(t_data *data);
+void	ft_check_player(t_data *data);
+void	ft_player_invalid(char *error, t_data *data);
 
 #endif

@@ -25,7 +25,6 @@ void	move_w(t_data *data)
 			data->y--;
 			data->map[data->y][data->x] = 'P';
 			data->step++;
-			ft_printf("%d\n", data->step);
 			ft_draw_map(data);
 		}
 		if (data->map[data->y - 1][data->x] == 'E' && data->c == 0)
@@ -48,7 +47,6 @@ void	move_a(t_data *data)
 			data->x--;
 			data->map[data->y][data->x] = 'P';
 			data->step++;
-			ft_printf("%d\n", data->step);
 			ft_draw_map(data);
 		}
 		if (data->map[data->y][data->x - 1] == 'E' && data->c == 0)
@@ -71,7 +69,6 @@ void	move_s(t_data *data)
 			data->y++;
 			data->map[data->y][data->x] = 'P';
 			data->step++;
-			ft_printf("%d\n", data->step);
 			ft_draw_map(data);
 		}
 		if (data->map[data->y + 1][data->x] == 'E' && data->c == 0)
@@ -94,7 +91,6 @@ void	move_d(t_data *data)
 			data->x++;
 			data->map[data->y][data->x] = 'P';
 			data->step++;
-			ft_printf("%d\n", data->step);
 			ft_draw_map(data);
 		}
 		if (data->map[data->y][data->x + 1] == 'E' && data->c == 0)
@@ -108,7 +104,10 @@ void	move_d(t_data *data)
 int	key_press(int key, t_data *data)
 {
 	if (key == XK_Escape)
+	{
+		ft_printf("Movements: %d", data->step);
 		on_destroy(data);
+	}
 	if (key == XK_w || key == XK_Up)
 	{
 		move_w(data);

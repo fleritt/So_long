@@ -20,8 +20,7 @@ int	ft_valid_char(char *line, int f)
 	while (line[i])
 	{
 		if (line[i] != '1' && line[i] != '0' && line[i] != 'E'
-			&& line[i] != '\n' && line[i] != 'C' && line[i] != 'P'
-			&& line[i] != '\r')
+			&& line[i] != '\n' && line[i] != 'C' && line[i] != 'P')
 			return (0);
 		i++;
 	}
@@ -30,13 +29,13 @@ int	ft_valid_char(char *line, int f)
 		i = 0;
 		while (line[i])
 		{
-			if (line[i] != '1' && line[i] != '\r' && line[i] != '\n')
+			if (line[i] != '1' && line[i] != '\n')
 				return (0);
 			i++;
 		}
 	}
 	else
-		if (line[0] != '1' || line[i - 3] != '1')
+		if (line[0] != '1' || line[i - 2] != '1')
 			return (0);
 	return (1);
 }
@@ -50,19 +49,22 @@ void	ft_valid_map(t_data *data)
 
 	fd = open(data->ber, O_RDONLY);
 	if (fd == -1)
-		ft_error("¡ERROR! El archivo no existe", data);
+		ft_error("¡ERROR! The file does not exist", data);
 	f = 1;
-	line = get_next_line(fd);
+	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error("¡ERROR! El archivo no es válido", data);
-	while (line)
+		ft_error("¡ERROR! The file is not valid", data);
+	while (line != NULL)
 	{
 		valid = ft_valid_char(line, f);
 		if (valid == 0)
+		{
+			get_next_line(fd, 1);
 			ft_invalid_map(line);
+		}
 		f = 0;
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 	}
 	close(fd);
 }
@@ -76,16 +78,16 @@ void	ft_count_map_size(t_data *data)
 	data->height = 0;
 	fd = open(data->ber, O_RDONLY);
 	if (fd == -1)
-		ft_error("¡ERROR! El archivo no existe", data);
-	line = get_next_line(fd);
+		ft_error("¡ERROR! The file does not exist", data);
+	line = get_next_line(fd, 0);
 	if (!line)
-		ft_error("¡ERROR! El archivo no es válido", data);
+		ft_error("¡ERROR! The file is not valid", data);
 	data->width = ft_strlen(line) - 1;
 	while (line)
 	{
 		data->height++;
 		free(line);
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 	}
 	free(line);
 	close(fd);
@@ -106,7 +108,7 @@ void	ft_load_map(t_data *data)
 		ft_error("¡ERROR!", data);
 	while (i < data->height)
 	{
-		line = get_next_line(fd);
+		line = get_next_line(fd, 0);
 		if (!line)
 			ft_error("¡ERROR!", data);
 		data->map[i] = ft_strdup(line);
