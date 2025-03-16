@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/10 17:48:53 by rfleritt          #+#    #+#             */
-/*   Updated: 2024/12/03 11:32:47 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/11 10:19:05 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ static char	*ft_mall_read(int fd, char *buffer, int n)
 	return (free(r), buffer);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int i)
 {
 	static char	*buffer;
 	char		*line;
@@ -130,7 +130,10 @@ char	*get_next_line(int fd)
 	buffer = ft_next_line(buffer);
 	if (!line)
 		return (NULL);
-	return (line);
+	if (i == 0)
+		return (line);
+	else
+		return (free(line), free(buffer), NULL);
 }
 
 /*int	main(void)
